@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000").replace(/\/$/, "");
+const API_URL = (process.env.NEXT_PUBLIC_API_URL ?? "https://api.sourovadikari.xyz").replace(/\/$/, "");
 
 export interface Portfolio { name?: string; fullName?: string; title?: string; role?: string; location?: string; email?: string; phone?: string; about?: string; [key: string]: ReactNode; }
 export interface Project { id: string | number; title?: string; name?: string; slug?: string; description?: string; subtitle?: string; longDescription?: string; category?: string; status?: string; year?: string | number; purpose?: string; solution?: string; image?: string; imageUrl?: string; technologies?: ReactNode; features?: ReactNode; highlights?: ReactNode; lessons?: ReactNode; [key: string]: ReactNode; }
