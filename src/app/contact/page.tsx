@@ -1,5 +1,5 @@
-import { api } from "../../lib/api";
-import { ContactSection } from "../../components/ContactSection/ContactSection";
+import { api } from "@/lib/api";
+import { ContactSection } from "@/components/ContactSection/ContactSection";
 
 export default async function Page() {
   const portfolio = await api.getPortfolio().catch(() => null);

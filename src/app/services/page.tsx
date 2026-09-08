@@ -1,5 +1,5 @@
-import { api } from "../../lib/api";
-import { ServicesSection } from "../../components/ServicesSection/ServicesSection";
+import { api } from "@/lib/api";
+import { ServicesSection } from "@/components/ServicesSection/ServicesSection";
 
 export default async function Page() {
   const services = await api.getServices().catch(() => null);

@@ -4,9 +4,9 @@ import "@fontsource/geist-sans/400.css";
 import "@fontsource/geist-sans/700.css";
 import "./globals.css";
 import ReactLenis from "lenis/react";
-import Header from "../components/Header/Header";
-import { Footer } from "../components/Footer/Footer";
-import { api } from "../lib/api";
+import Header from "@/components/Header/Header";
+import { Footer } from "@/components/Footer/Footer";
+import { api } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "Sourov Chandra Adikari — Full Stack Web Developer",

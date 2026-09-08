@@ -165,16 +165,6 @@
   position: relative;
 }
 
-:root:not(.dark) .about-section::before {
-  content: "";
-  position: absolute;
-  inset: 10% 3% auto;
-  height: 70%;
-  border-radius: 3rem;
-  background: linear-gradient(120deg, rgba(139, 92, 246, 0.05), rgba(14, 165, 233, 0.04));
-  pointer-events: none;
-}
-
 :root:not(.dark) .about-section > *,
 :root:not(.dark) .languages-section > * {
   position: relative;
@@ -182,20 +172,19 @@
 }
 
 :root:not(.dark) .about-intro .about-portrait {
-  box-shadow: 0 26px 70px rgba(71, 85, 105, 0.16);
+  box-shadow: 0 26px 70px rgba(71, 85, 105, 0.14);
 }
 
 :root:not(.dark) .about-stats .glass-panel {
-  background: transparent;
-  border-width: 0 0 0 1px;
-  border-color: color-mix(in srgb, var(--primary) 24%, var(--border));
-  border-radius: 0;
-  box-shadow: none;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
 :root:not(.dark) .about-stats .glass-panel:hover {
-  box-shadow: none;
-  background: color-mix(in srgb, var(--primary) 4%, transparent);
+  box-shadow: 0 16px 38px rgba(139, 92, 246, 0.12);
+  background: rgba(255, 255, 255, 0.82);
 }
 
 .text-gradient {

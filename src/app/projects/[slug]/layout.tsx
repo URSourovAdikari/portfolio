@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { api } from "../../../lib/api";
+import { api } from "@/lib/api";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;

@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Search, X } from "lucide-react";
 import Link from "next/link";
-import type { Project } from "../../lib/api";
+import type { Project } from "@/lib/api";
 
 const normalizeSearchText = (value: unknown) => String(value ?? "").normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
 const projectSearchText = (project: Project) => normalizeSearchText([project.title, project.name, project.slug, project.description, project.subtitle, project.longDescription, project.category, project.status, project.year, project.purpose, project.solution, project.technologies, project.features, project.highlights, project.lessons].flat().join(" "));

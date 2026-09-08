@@ -1,5 +1,5 @@
-import { api } from "../../lib/api";
-import { CareerTimeline } from "../../components/CareerSection/CareerTimeline";
+import { api } from "@/lib/api";
+import { CareerTimeline } from "@/components/CareerSection/CareerTimeline";
 
 export default async function Page() {
   const experience = await api.getExperience().catch(() => null);

@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Download, Send, Facebook, Github, Instagram, Linkedin, Mail, MessageCircle } from "lucide-react";
-import TechStackSection from "../TechStackSection/TechStackSection";
-import { Button } from "../lightswind/button";
-import { Badge } from "../lightswind/badge";
-import { HangingIdCard } from "../lightswind/HangingIdCard";
-import { DotPattern } from "../lightswind/dot-pattern";
-import type { Portfolio, Social } from "../../lib/api";
+import TechStackSection from "@/components/TechStackSection/TechStackSection";
+import { Button } from "@/components/lightswind/button";
+import { Badge } from "@/components/lightswind/badge";
+import { HangingIdCard } from "@/components/lightswind/HangingIdCard";
+import { DotPattern } from "@/components/lightswind/dot-pattern";
+import type { Portfolio, Social } from "@/lib/api";
 
 interface HeroSectionProps { portfolio: Portfolio; socials: Social[]; projectCount?: number; experienceYears?: number; }
 

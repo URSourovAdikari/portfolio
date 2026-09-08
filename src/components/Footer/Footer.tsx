@@ -15,9 +15,9 @@ import {
   AlertCircle,
 } from "lucide-react";
 import Link from "next/link";
-import { MorphingText } from "../lightswind/morphing-text";
-import type { Portfolio, Social } from "../../lib/api";
-import { api } from "../../lib/api";
+import { MorphingText } from "@/components/lightswind/morphing-text";
+import type { Portfolio, Social } from "@/lib/api";
+import { api } from "@/lib/api";
 
 const BUSINESS_EMAIL = "contact@sourovadikari.xyz";
 const EMAIL_PATTERN =

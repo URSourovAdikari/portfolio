@@ -1,6 +1,6 @@
-import { api } from "../../lib/api";
-import { AboutSection } from "../../components/AboutSection/AboutSection";
-import { LanguagesSection } from "../../components/LanguagesSection/LanguagesSection";
+import { api } from "@/lib/api";
+import { AboutSection } from "@/components/AboutSection/AboutSection";
+import { LanguagesSection } from "@/components/LanguagesSection/LanguagesSection";
 
 export default async function Page() {
   const [portfolioResult, projectsResult, languagesResult] = await Promise.allSettled([

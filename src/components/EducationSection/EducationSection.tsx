@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Brain, Code2, Layers3, Rocket, Server, Wrench, GraduationCap, Award, CheckCircle2, Calendar, Building2 } from "lucide-react";
-import { MagicCard } from "../lightswind/magic-card";
-import type { Education, Skill } from "../../lib/api";
+import { MagicCard } from "@/components/lightswind/magic-card";
+import type { Education, Skill } from "@/lib/api";
 
 const categoryIcons: Record<string, typeof Code2> = {
   "Frontend Development": Code2,

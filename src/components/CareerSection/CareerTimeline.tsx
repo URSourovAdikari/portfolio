@@ -1,8 +1,8 @@
 "use client";
 
-import { ScrollTimeline } from "../lightswind/scroll-timeline";
+import { ScrollTimeline } from "@/components/lightswind/scroll-timeline";
 import { Briefcase, Globe } from "lucide-react";
-import type { Experience } from "../../lib/api";
+import type { Experience } from "@/lib/api";
 
 export const CareerTimeline = ({ experience }: { experience: Experience[] }) => {
   const careerEvents = experience.length > 0 ? experience.map((item, index) => {

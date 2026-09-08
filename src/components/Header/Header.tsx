@@ -5,8 +5,8 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Command, Download, Menu, Send, X } from "lucide-react";
 import { useLenis } from "lenis/react";
 import { usePathname, useRouter } from "next/navigation";
-import type { Portfolio } from "../../lib/api";
-import { ThemeToggle } from "../lightswind/theme-toggle";
+import type { Portfolio } from "@/lib/api";
+import { ThemeToggle } from "@/components/lightswind/theme-toggle";
 
 const navItems = [
   { name: "Home", href: "/" },

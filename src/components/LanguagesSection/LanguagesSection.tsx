@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Globe2 } from "lucide-react";
-import type { Language } from "../../lib/api";
+import type { Language } from "@/lib/api";
 
 export function LanguagesSection({ languages }: { languages: Language[] }) {
   return (

@@ -2,7 +2,7 @@
 
 import React, { useCallback } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import { cn } from "../../lib/utils";
+import { cn } from "@/lib/utils";
 
 export interface MagicCardProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;

@@ -2,8 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Code2, Palette, Cpu, Layers } from "lucide-react";
-import { MagicCard } from "../lightswind/magic-card";
-import type { Service } from "../../lib/api";
+import { MagicCard } from "@/components/lightswind/magic-card";
+import type { Service } from "@/lib/api";
 
 const icons = [Code2, Palette, Cpu, Layers];
 

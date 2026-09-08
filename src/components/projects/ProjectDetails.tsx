@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, ExternalLink, Lightbulb, Target, Wrench } from "lucide-react";
-import type { Project } from "../../lib/api";
+import type { Project } from "@/lib/api";
 
 function PageFrame({ children }: { children: React.ReactNode }) {
   return <main className="w-full flex flex-col pt-28 min-h-screen">{children}</main>;

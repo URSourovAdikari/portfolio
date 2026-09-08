@@ -6,8 +6,8 @@ import {
   useSpring,
   MotionValue,
 } from "framer-motion";
-import { cn } from "../../lib/utils";
-import { Card, CardContent } from "./card";
+import { cn } from "@/lib/utils";
+import { Card, CardContent } from "@/components/lightswind/card";
 import { Calendar } from "lucide-react";
 
 export interface TimelineEvent {

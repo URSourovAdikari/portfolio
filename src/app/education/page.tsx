@@ -1,5 +1,5 @@
-import { api } from "../../lib/api";
-import { EducationSection } from "../../components/EducationSection/EducationSection";
+import { api } from "@/lib/api";
+import { EducationSection } from "@/components/EducationSection/EducationSection";
 
 export default async function Page() {
   const [educationResult, skillsResult] = await Promise.allSettled([api.getEducation(), api.getSkills()]);

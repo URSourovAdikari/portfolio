@@ -13,11 +13,11 @@ import {
   AlertCircle,
   LoaderCircle,
 } from "lucide-react";
-import { Input } from "../lightswind/input";
-import { Textarea } from "../lightswind/textarea";
-import { Button } from "../lightswind/button";
-import { api } from "../../lib/api";
-import type { Portfolio } from "../../lib/api";
+import { Input } from "@/components/lightswind/input";
+import { Textarea } from "@/components/lightswind/textarea";
+import { Button } from "@/components/lightswind/button";
+import { api } from "@/lib/api";
+import type { Portfolio } from "@/lib/api";
 
 const BUSINESS_EMAIL = "contact@sourovadikari.xyz";
 
