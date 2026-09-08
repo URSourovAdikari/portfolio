@@ -2,6 +2,7 @@ import { api, type Portfolio } from "../lib/api";
 import { HeroSection } from "../components/HeroSection/HeroSection";
 import { AboutSection } from "../components/AboutSection/AboutSection";
 import { ProjectsSection } from "../components/ProjectsSection/ProjectsSection";
+import TestimonialsSection from "../components/TestimonialsSection/TestimonialsSection";
 
 export default async function Page() {
   const [portfolioResult, projectsResult, socialsResult] = await Promise.allSettled([
@@ -21,6 +22,7 @@ export default async function Page() {
         <AboutSection portfolio={{ ...portfolio, projectCount: projects?.length ?? 0, experienceYears } as Portfolio} showImage={false} />
       </> : <p className="pt-32 text-center">Unable to load profile.</p>}
       {projects ? <ProjectsSection projects={projects} limit={4} /> : <p className="py-16 text-center">Unable to load projects.</p>}
+      <TestimonialsSection />
       </main>
   );
 }
