@@ -20,7 +20,6 @@ A React and TypeScript portfolio website built with Next.js App Router. The site
 | `/about` | About, services, and languages |
 | `/projects` | All projects |
 | `/projects/:slug` | Project details |
-| `/skills` | Skills and professional traits |
 | `/experience` | Career timeline |
 | `/education` | Education and learning |
 | `/contact` | Contact form |

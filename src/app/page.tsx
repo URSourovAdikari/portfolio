@@ -20,7 +20,7 @@ export default async function Page() {
         <HeroSection portfolio={{ ...portfolio, projectCount: projects?.length ?? 0, experienceYears }} socials={socials} projectCount={projects?.length ?? 0} experienceYears={experienceYears} />
         <AboutSection portfolio={{ ...portfolio, projectCount: projects?.length ?? 0, experienceYears } as Portfolio} showImage={false} />
       </> : <p className="pt-32 text-center">Unable to load profile.</p>}
-      {projects ? <ProjectsSection projects={projects} limit={3} /> : <p className="py-16 text-center">Unable to load projects.</p>}
+      {projects ? <ProjectsSection projects={projects} limit={4} /> : <p className="py-16 text-center">Unable to load projects.</p>}
       </main>
   );
 }

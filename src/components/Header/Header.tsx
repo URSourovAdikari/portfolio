@@ -13,9 +13,9 @@ const navItems = [
   { name: "About", href: "/about" },
   { name: "Education", href: "/education" },
   { name: "Career", href: "/experience" },
+  { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
   { name: "Contact", href: "/contact" },
-  { name: "Skills", href: "/skills" },
 ];
 
 const commandItems = navItems;
