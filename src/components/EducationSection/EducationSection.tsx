@@ -1,3 +1,5 @@
+"use client";
+
 import SkillCategory from "./SkillCategory";
 import { motion } from "framer-motion";
 import { GraduationCap, Award, CheckCircle2, Calendar, Building2 } from "lucide-react";
