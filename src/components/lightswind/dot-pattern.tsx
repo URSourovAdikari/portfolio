@@ -28,7 +28,7 @@ export function DotPattern({
   const id = useId();
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+    <div className="hero-dot-pattern absolute inset-0 overflow-hidden pointer-events-none z-0">
       <svg
         aria-hidden="true"
         className={cn(
