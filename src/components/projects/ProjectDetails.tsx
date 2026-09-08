@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Link from "next/link";
-import { useParams } from "next/navigation";
 import { ArrowLeft, CheckCircle2, ExternalLink, Lightbulb, Target, Wrench } from "lucide-react";
 import type { Project } from "../../lib/api";
-import { api } from "../../lib/api";
 
 function PageFrame({ children }: { children: React.ReactNode }) {
   return <main className="w-full flex flex-col pt-28 min-h-screen">{children}</main>;
@@ -15,50 +13,8 @@ function StateMessage({ title, message, action }: { title: string; message: stri
   return <div className="max-w-3xl mx-auto px-6 py-32 text-center"><h1 className="text-3xl md:text-5xl font-bold tracking-tight mb-3">{title}</h1><p className="text-muted-foreground text-base mb-6">{message}</p>{action}</div>;
 }
 
-export default function ProjectDetails() {
-  const { slug } = useParams<{ slug: string }>();
-  const projectSlug = Array.isArray(slug) ? slug[0] : slug;
-
-  const [project, setProject] = useState<Project | null>(null);
-  const [status, setStatus] = useState<"loading" | "success" | "error">(
-    "loading"
-  );
-
-  // Load project
-  useEffect(() => {
-    if (!projectSlug) {
-      setProject(null);
-      setStatus("error");
-      return;
-    }
-
-    let active = true;
-
-    // Reset previous project immediately when slug changes.
-    // This prevents the previous project's content/title from
-    // remaining visible while the new project is loading.
-    setProject(null);
-    setStatus("loading");
-
-    void api
-      .getProject(projectSlug)
-      .then((result) => {
-        if (!active) return;
-
-        setProject(result);
-        setStatus("success");
-      })
-      .catch(() => {
-        if (!active) return;
-
-        setProject(null);
-        setStatus("error");
-      });
-
-    return () => {
-      active = false;
-    };
-  }, [projectSlug]);
+export default function ProjectDetails({ project }: { project: Project | null }) {
+  const status = project ? "success" : "error";
 
   /*
    * Dynamic project SEO title
@@ -69,11 +25,6 @@ export default function ProjectDetails() {
    * Failed project:     "Project Not Found | Sourov Chandra Adikari"
    */
   useEffect(() => {
-    if (status === "loading") {
-      document.title = "Loading Project | Sourov Chandra Adikari";
-      return;
-    }
-
     if (status === "success" && project) {
       const projectTitle = String(project.title ?? project.name ?? "Project").trim();
       document.title = `${projectTitle} | Sourov Chandra Adikari`;
@@ -82,11 +33,6 @@ export default function ProjectDetails() {
 
     document.title = "Project Not Found | Sourov Chandra Adikari";
   }, [project, status]);
-
-  // Loading state
-  if (status === "loading") {
-    return <PageFrame><p className="py-32 text-center">Loading project...</p></PageFrame>;
-  }
 
   // Project not found
   if (status === "error" || !project) {
