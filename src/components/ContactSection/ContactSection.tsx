@@ -100,7 +100,7 @@ export const ContactSection = ({ portfolio }: { portfolio: Portfolio }) => {
       setForm({
         name: "",
         email: "",
-        subject: requestedSubject || "",
+        subject: "",
         message: "",
       });
     } catch (submitError) {
