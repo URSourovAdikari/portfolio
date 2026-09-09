@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   Github,
@@ -127,7 +128,7 @@ export const Footer = ({
           <div className="flex items-center gap-3">
             <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-primary to-sky-400 p-[1px] shadow-lg">
               <div className="w-full h-full bg-background rounded-[11px] flex items-center justify-center">
-                <img src="/favicon.png" alt="" className="w-full h-full rounded-[11px] object-cover" />
+                <Image src="/favicon.png" alt="" className="w-full h-full rounded-[11px] object-cover" />
               </div>
             </div>
 
