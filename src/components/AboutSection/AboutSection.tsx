@@ -22,7 +22,7 @@ export const AboutSection = ({ portfolio, showImage = true }: { portfolio: Portf
           <div className="w-full flex justify-center">
             <motion.div className="about-portrait portfolio-card relative w-full max-w-sm aspect-[4/5] rounded-[2rem] overflow-hidden border border-foreground/10 bg-foreground/[0.025] shadow-xl" initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} whileHover={{ y: -6, rotateX: 1.5, rotateY: -1.5 }} transition={{ duration: 0.7, ease: "easeOut" }} viewport={{ once: true }} style={{ transformStyle: "preserve-3d" }}>
               <div className="absolute inset-0 bg-gradient-to-t from-background/30 via-transparent to-primary/10 pointer-events-none z-10" />
-              <img src="/sourov.jpg" alt="Sourov Adikari" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+              <img src="/profile.jpg" alt="Sourov Adikari" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
               <div className="absolute inset-x-5 bottom-5 z-20 rounded-2xl border border-white/15 bg-black/25 px-4 py-3 text-white/90 backdrop-blur-xl opacity-0 translate-y-2 transition-all duration-300 hover:opacity-100" />
             </motion.div>
           </div>

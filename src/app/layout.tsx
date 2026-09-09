@@ -9,11 +9,71 @@ import { Footer } from "@/components/Footer/Footer";
 import { api } from "@/lib/api";
 
 export const metadata: Metadata = {
-  title: "Sourov Chandra Adikari — Full Stack Web Developer",
-  description: "Portfolio of Sourov Chandra Adikari, a Full Stack Web Developer building modern, responsive web applications.",
-  authors: [{ name: "Sourov Chandra Adikari" }],
-  robots: { index: true, follow: true },
-  icons: { icon: "/favicon.svg" },
+  metadataBase: new URL("https://sourovadikari.xyz"),
+  title: {
+    default: "Sourov Chandra Adikari — Full Stack Web Developer",
+    template: "%s | Sourov Chandra Adikari",
+  },
+  description:
+    "Sourov Chandra Adikari is a Full Stack Web Developer and Student creating modern, responsive, and user-focused web applications.",
+  authors: [
+    {
+      name: "Sourov Chandra Adikari",
+      url: "https://sourovadikari.xyz",
+    },
+  ],
+  creator: "Sourov Chandra Adikari",
+  publisher: "Sourov Chandra Adikari",
+  keywords: [
+    "Sourov Chandra Adikari",
+    "Sourov Adikari",
+    "Full Stack Web Developer",
+    "Web Developer",
+    "Next.js Developer",
+    "React Developer",
+    "TypeScript Developer",
+    "Bangladesh Web Developer",
+  ],
+  alternates: {
+    canonical: "https://sourovadikari.xyz",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.png",
+  },
+  openGraph: {
+    type: "website",
+    url: "https://sourovadikari.xyz",
+    title: "Sourov Chandra Adikari — Full Stack Web Developer",
+    description:
+      "Portfolio of Sourov Chandra Adikari, a Full Stack Web Developer and Student creating modern, responsive, and user-focused web applications.",
+    siteName: "Sourov Chandra Adikari",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Sourov Chandra Adikari — Full Stack Web Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sourov Chandra Adikari — Full Stack Web Developer",
+    description: "Portfolio of Sourov Chandra Adikari, a Full Stack Web Developer and Student.",
+    images: ["/og-image.webp"],
+  },
   manifest: "/site.webmanifest",
 };
 

@@ -49,7 +49,9 @@ export const ContactSection = ({ portfolio }: { portfolio: Portfolio }) => {
     const subject = searchParams.get("subject");
 
     if (subject) {
-      setForm((current) => ({ ...current, subject }));
+      React.startTransition(() => {
+        setForm((current) => ({ ...current, subject }));
+      });
     }
   }, [searchParams]);
 

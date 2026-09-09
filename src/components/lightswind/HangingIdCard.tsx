@@ -188,7 +188,7 @@ export const HangingIdCard = ({
   const dragAngle0   = useRef(0);
 
   // ── Physics loop ────────────────────────────────────────────────────────────
-  const tick = useCallback((now: number) => {
+  const tick = useCallback(function tick(now: number) {
     if (prevTimeRef.current === null) { prevTimeRef.current = now; }
     const dt = Math.min((now - prevTimeRef.current) / 1000, 0.05); // cap at 50ms
     prevTimeRef.current = now;
