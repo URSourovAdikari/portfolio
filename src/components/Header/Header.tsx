@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Command, Download, Menu, Send, X } from "lucide-react";
@@ -175,7 +176,7 @@ export default function Header({ portfolio }: { portfolio: Portfolio }) {
           <button onClick={() => handleNavigate("/")} className="cursor-pointer font-extrabold text-lg flex items-center gap-3 group select-none" aria-label="Go to home">
             <div className="relative w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-primary to-sky-400 p-[1px] shadow-lg group-hover:scale-105 transition-transform duration-300">
               <div className="w-full h-full bg-background rounded-[11px] flex items-center justify-center">
-                <img src="/favicon.png" alt="" className="w-full h-full rounded-[11px] object-cover" />
+                <Image src="/favicon.png" alt="" className="w-full h-full rounded-[11px] object-cover" />
               </div>
             </div>
             <div className="hidden sm:flex flex-col text-left">
@@ -251,7 +252,7 @@ export default function Header({ portfolio }: { portfolio: Portfolio }) {
                     <div className="flex items-center gap-3">
                       <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-purple-600 via-primary to-sky-400 p-px">
                         <div className="w-full h-full rounded-[11px] bg-background/80 flex items-center justify-center">
-                          <img src="/favicon.png" alt="" className="w-full h-full rounded-[11px] object-cover" />
+                          <Image src="/favicon.png" alt="" className="w-full h-full rounded-[11px] object-cover" />
                         </div>
                       </div>
                       <div>
