@@ -120,23 +120,24 @@ export const ScrollTimeline = ({
   }, [scrollYProgress, events.length, activeIndex]);
 
   const getConnectorClasses = () => {
+    // NOTE: width is applied via inline `style` (see usage below), not as a
+    // Tailwind class, because a template-literal class like `w-[${n}px]`
+    // can never be picked up by Tailwind's static class scanner.
     const baseClasses = cn(
       "absolute left-1/2 transform -translate-x-1/2",
       lineColor
     );
-    const widthStyle = `w-[${progressLineWidth}px]`;
     switch (connectorStyle) {
       case "dots":
         return cn(baseClasses, "w-1 rounded-full");
       case "dashed":
         return cn(
           baseClasses,
-          widthStyle,
           `[mask-image:linear-gradient(to_bottom,black_33%,transparent_33%,transparent_66%,black_66%)] [mask-size:1px_12px]`
         );
       case "line":
       default:
-        return cn(baseClasses, widthStyle);
+        return baseClasses;
     }
   };
 
@@ -235,6 +236,7 @@ export const ScrollTimeline = ({
         <div className="relative mx-auto">
           <div
             className={cn(getConnectorClasses(), "h-full absolute top-0 z-10")}
+            style={connectorStyle !== "dots" ? { width: `${progressLineWidth}px` } : undefined}
           />
 
           {progressIndicator && (
@@ -328,49 +330,66 @@ export const ScrollTimeline = ({
                     />
                   </div>
 
+                  {/*
+                    Two nested motion.div's on purpose:
+                    - OUTER handles the scroll-linked parallax `y` (a MotionValue
+                      bound via `style`, continuously updated on scroll).
+                    - INNER handles the one-shot `whileInView` reveal animation
+                      (opacity/x/scale/rotateY/y transition on mount-into-view).
+                    Previously both lived on the same element and both tried to
+                    drive the same `translateY` transform - the scroll-linked
+                    MotionValue kept winning, so any card whose whileInView fired
+                    while there was already meaningful scroll delta (i.e. every
+                    card after the first) never visually settled into place.
+                    Splitting them onto separate elements lets each own a
+                    different transform without fighting the other.
+                  */}
                   <motion.div
                     className={cn(getCardClasses(index), "mt-12 lg:mt-0")}
-                    initial={animationProps.initial}
-                    whileInView={animationProps.whileInView}
-                    viewport={animationProps.viewport}
                     style={parallaxIntensity > 0 ? { y: yOffset } : undefined}
                   >
-                    <Card className="bg-background border">
-                      <CardContent className="p-6">
-                        {dateFormat === "badge" ? (
-                          <div className="flex items-center mb-2">
-                            {event.icon || (
-                              <Calendar className="h-4 w-4 mr-2 text-primary" />
-                            )}
-                            <span
-                              className={cn(
-                                "text-sm font-bold",
-                                event.color
-                                  ? `text-${event.color}`
-                                  : "text-primary"
+                    <motion.div
+                      initial={animationProps.initial}
+                      whileInView={animationProps.whileInView}
+                      viewport={animationProps.viewport}
+                    >
+                      <Card className="bg-background border">
+                        <CardContent className="p-6">
+                          {dateFormat === "badge" ? (
+                            <div className="flex items-center mb-2">
+                              {event.icon || (
+                                <Calendar className="h-4 w-4 mr-2 text-primary" />
                               )}
-                            >
+                              <span
+                                className={cn(
+                                  "text-sm font-bold",
+                                  event.color
+                                    ? `text-${event.color}`
+                                    : "text-primary"
+                                )}
+                              >
+                                {event.year}
+                              </span>
+                            </div>
+                          ) : (
+                            <p className="text-lg font-bold text-primary mb-2">
                               {event.year}
-                            </span>
-                          </div>
-                        ) : (
-                          <p className="text-lg font-bold text-primary mb-2">
-                            {event.year}
+                            </p>
+                          )}
+                          <h3 className="text-xl font-bold mb-1">
+                            {event.title}
+                          </h3>
+                          {event.subtitle && (
+                            <p className="text-muted-foreground font-medium mb-2">
+                              {event.subtitle}
+                            </p>
+                          )}
+                          <p className="text-muted-foreground">
+                            {event.description}
                           </p>
-                        )}
-                        <h3 className="text-xl font-bold mb-1">
-                          {event.title}
-                        </h3>
-                        {event.subtitle && (
-                          <p className="text-muted-foreground font-medium mb-2">
-                            {event.subtitle}
-                          </p>
-                        )}
-                        <p className="text-muted-foreground">
-                          {event.description}
-                        </p>
-                      </CardContent>
-                    </Card>
+                        </CardContent>
+                      </Card>
+                    </motion.div>
                   </motion.div>
                 </div>
               );
