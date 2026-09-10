@@ -8,6 +8,7 @@ export const CareerTimeline = ({ experience }: { experience: Experience[] }) => 
   const careerEvents = experience.length > 0 ? experience.map((item, index) => {
     const Icon = index % 2 === 0 ? Globe : Briefcase;
     return {
+      id: String(item.id ?? index),
       year: item.year ?? ([item.startDate, item.endDate].filter(Boolean).join(" – ") || "Experience"),
       title: item.title ?? item.role ?? "Professional Experience",
       subtitle: item.company ?? item.subtitle ?? "",
